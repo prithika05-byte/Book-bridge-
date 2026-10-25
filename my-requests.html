@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Requests | BookBridge</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 86% 18%, #fffde8 0 35px, transparent 37px),
+        radial-gradient(circle at 20% 24%, white 1px, transparent 2px),
+        radial-gradient(circle at 62% 15%, white 1px, transparent 3px),
+        linear-gradient(180deg, #0b3c70, #087fa4 60%, #56c6c2);
+    background-attachment: fixed;
+}
+
+nav {
+    padding: 22px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: #063763bb;
+    border-bottom: 1px solid #ffffff33;
+}
+
+.logo {
+    font: bold 32px Georgia, serif;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+}
+
+.hero {
+    text-align: center;
+    padding: 48px 15px 25px;
+}
+
+.hero h1 {
+    font: bold clamp(36px, 5vw, 62px) Georgia, serif;
+    margin-bottom: 12px;
+    text-shadow: 2px 4px 4px #07375a;
+}
+
+.hero p { font-size: 18px; }
+
+.container {
+    width: min(1050px, 92%);
+    margin: 25px auto 60px;
+}
+
+.tools {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+input, select {
+    padding: 13px;
+    border: 1px solid #d3e8f4;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+#search {
+    flex: 1;
+    min-width: 190px;
+}
+
+.panel {
+    background: #07365bd9;
+    border: 1px solid #a2e9ff88;
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 25px #00244230;
+}
+
+.panel h2 { margin-top: 0; }
+
+.notice {
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+    background: #ffffff17;
+    border-left: 4px solid #63e4f0;
+}
+
+.card {
+    background: #07365bd9;
+    border: 1px solid #a2e9ff88;
+    border-radius: 16px;
+    padding: 23px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #a4f5ff;
+    font: bold 25px Georgia, serif;
+    margin-top: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 30px;
+    background: #ffffff20;
+    border: 1px solid #ffffff66;
+    font-size: 13px;
+}
+
+.timeline {
+    display: flex;
+    gap: 5px;
+    margin: 22px 0;
+}
+
+.stage {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #c8dce7;
+    padding-top: 12px;
+    border-top: 4px solid #ffffff40;
+}
+
+.stage.done {
+    color: #b7ffe1;
+    border-color: #54f0c1;
+}
+
+button {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #16b8d0;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover { filter: brightness(1.1); }
+
+.empty {
+    text-align: center;
+    padding: 35px;
+    background: #ffffffed;
+    color: #075084;
+    border-radius: 18px;
+}
+
+@media(max-width: 550px) {
+    nav { justify-content: center; }
+    .logo { width: 100%; text-align: center; }
+    .timeline { gap: 2px; }
+    .stage { font-size: 10px; overflow-wrap: anywhere; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">📚 BookBridge</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="donate.html">Donate</a>
+        <a href="find.html">Find a Book</a>
+        <a href="requests.html">My Requests</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div style="font-size:48px">📋</div>
+    <h1>My Book Requests</h1>
+    <p>Track your requested books from request to completion.</p>
+</header>
+
+<main class="container">
+
+    <section class="panel">
+        <h2>🔔 Notifications</h2>
+        <div id="notifications">
+            <p>Your request updates will appear here.</p>
+        </div>
+    </section>
+
+    <div class="tools">
+        <input id="search" placeholder="🔍 Search book title..."
+               aria-label="Search book title">
+
+        <select id="statusFilter" aria-label="Filter by status">
+            <option value="All">All Requests</option>
+            <option value="Pending">Pending</option>
+            <option value="Accepted">Accepted</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Completed">Completed</option>
+        </select>
+
+        <button onclick="renderRequests()">Refresh</button>
+    </div>
+
+    <div id="requestList"></div>
+
+</main>
+
+<script src="workflow.js"></script>
+
+<script>
+const searchInput = document.getElementById("search");
+const statusFilter = document.getElementById("statusFilter");
+
+// Track recent status changes in this browser.
+function showNotifications(requests) {
+    const previous = JSON.parse(
+        localStorage.getItem("bbPreviousStatuses") || "{}"
+    );
+
+    const messages = [];
+
+    requests.forEach(r => {
+        const oldStatus = previous[r.id];
+
+        if (oldStatus && oldStatus !== r.status) {
+            messages.push(
+                `${r.title}: ${oldStatus} → ${r.status}`
+            );
+        }
+    });
+
+    const current = {};
+    requests.forEach(r => current[r.id] = r.status);
+    localStorage.setItem("bbPreviousStatuses", JSON.stringify(current));
+
+    const area = document.getElementById("notifications");
+    area.replaceChildren();
+
+    if (!messages.length) {
+        const p = document.createElement("p");
+        p.textContent =
+            "No new status changes. Your current request statuses are shown below.";
+        area.appendChild(p);
+        return;
+    }
+
+    messages.reverse().forEach(message => {
+        const div = document.createElement("div");
+        div.className = "notice";
+        div.textContent = "🔔 " + message;
+        area.appendChild(div);
+    });
+}
+
+function renderRequests() {
+    const all = getRequests();
+    showNotifications(all);
+
+    const query = searchInput.value.trim().toLowerCase();
+    const filter = statusFilter.value;
+
+    const filtered = all.filter(r => {
+        const matchesTitle = (r.title || r.bookTitle || "")
+            .toLowerCase().includes(query);
+
+        const matchesStatus =
+            filter === "All" || r.status === filter;
+
+        return matchesTitle && matchesStatus;
+    });
+
+    const list = document.getElementById("requestList");
+    list.replaceChildren();
+
+    if (!filtered.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+
+        const h = document.createElement("h2");
+        h.textContent = "📚 No Requests Found";
+
+        const p = document.createElement("p");
+        p.textContent = all.length
+            ? "Try another search or status filter."
+            : "Your book requests will appear here.";
+
+        empty.append(h, p);
+        list.appendChild(empty);
+        return;
+    }
+
+    filtered.forEach(r => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const title = document.createElement("h3");
+        title.textContent = r.title || r.bookTitle || "Book";
+
+        const student = document.createElement("p");
+        student.textContent = "Student: " + (r.student || r.studentName || "");
+
+        const donor = document.createElement("p");
+        donor.textContent = "Donor: " + (r.donor || r.donorName || "");
+
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.textContent = "Status: " + r.status;
+
+        card.append(title, student, donor, badge);
+
+        const stages = [
+            "Pending", "Accepted", "PDF Uploaded", "Completed"
+        ];
+
+        const progress = document.createElement("div");
+        progress.className = "timeline";
+
+        let currentStage = -1;
+
+        if (r.status === "Pending") currentStage = 0;
+        if (r.status === "Accepted") currentStage = 1;
+        if (r.status === "Rejected") currentStage = -1;
+        if (r.status === "Completed") currentStage = 3;
+
+        // PDF Uploaded is represented when the PDF key exists.
+        if (r.pdfKey && r.status === "Accepted") currentStage = 2;
+
+        stages.forEach((stage, index) => {
+            const item = document.createElement("div");
+            item.className =
+                "stage" + (currentStage >= index ? " done" : "");
+            item.textContent = stage;
+            progress.appendChild(item);
+        });
+
+        card.appendChild(progress);
+
+        if (r.status === "Rejected") {
+            const p = document.createElement("p");
+            p.textContent = "This request was rejected.";
+            card.appendChild(p);
+        }
+
+        if (r.status === "Completed" && r.pdfKey) {
+            const download = document.createElement("button");
+            download.textContent = "⬇ Download Book PDF";
+            download.onclick = () => downloadPDF(r.id);
+            card.appendChild(download);
+        } else if (r.status === "Completed") {
+            const p = document.createElement("p");
+            p.textContent = "Request completed. No PDF is attached.";
+            card.appendChild(p);
+        }
+
+        list.appendChild(card);
+    });
+}
+
+searchInput.addEventListener("input", renderRequests);
+statusFilter.addEventListener("change", renderRequests);
+
+renderRequests();
+</script>
+
+</body>
+</html>
