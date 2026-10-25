@@ -1,0 +1,2845 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   MAIN BACKGROUND
+========================================= */
+
+.home-page {
+
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #063b73 0%,
+            #075b91 28%,
+            #1194b1 62%,
+            #58c1c5 100%
+        );
+
+    color: white;
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+.stars {
+
+    position: absolute;
+
+    width: 100%;
+    height: 60%;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 2px),
+        radial-gradient(circle, white 1px, transparent 2px),
+        radial-gradient(circle, white 1px, transparent 2px);
+
+    background-size:
+        170px 130px,
+        230px 180px,
+        310px 210px;
+
+    background-position:
+        20px 20px,
+        90px 70px,
+        150px 30px;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================
+   MOON
+========================================= */
+
+.moon {
+
+    position: absolute;
+
+    width: 92px;
+    height: 92px;
+
+    right: 11%;
+    top: 100px;
+
+    border-radius: 50%;
+
+    background: #fffdf0;
+
+    box-shadow:
+        0 0 20px #ffffff,
+        0 0 50px rgba(255,255,255,0.5),
+        0 0 90px rgba(255,255,255,0.25);
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   CLOUDS
+========================================= */
+
+.cloud {
+
+    position: absolute;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.09);
+
+    filter: blur(1px);
+}
+
+.cloud-one {
+
+    width: 330px;
+
+    top: 170px;
+    left: -80px;
+}
+
+.cloud-two {
+
+    width: 400px;
+
+    top: 270px;
+    right: -120px;
+}
+
+.cloud-three {
+
+    width: 280px;
+
+    top: 410px;
+    left: 5%;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+
+    position: relative;
+
+    z-index: 20;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5.5%;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+.brand-icon {
+
+    font-size: 37px;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 48px;
+
+    margin-left: 90px;
+}
+
+
+.nav-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    padding: 10px 0;
+
+    opacity: 0.85;
+
+    transition: 0.3s;
+
+    position: relative;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    opacity: 1;
+}
+
+
+.nav-links a.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 2px;
+
+    background: white;
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    border-radius: 18px;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    backdrop-filter: blur(8px);
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   BIRDS
+========================================= */
+
+.birds {
+
+    position: absolute;
+
+    top: 270px;
+
+    left: 19%;
+
+    font-size: 27px;
+
+    color: #053d68;
+
+    z-index: 2;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   TREES
+========================================= */
+
+.trees {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 28%;
+    height: 330px;
+
+    z-index: 4;
+}
+
+
+.tree {
+
+    position: absolute;
+
+    color: #063763;
+
+    font-size: 170px;
+
+    transform: scaleX(0.65);
+}
+
+
+.tree1 {
+    left: -55px;
+    bottom: 20px;
+}
+
+.tree2 {
+    left: 35px;
+    bottom: 0;
+    font-size: 125px;
+}
+
+.tree3 {
+    left: 100px;
+    bottom: 25px;
+    font-size: 90px;
+}
+
+.tree4 {
+    left: 150px;
+    bottom: 0;
+    font-size: 120px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    width: 100%;
+
+    padding-top: 55px;
+}
+
+
+/* =========================================
+   BOOK CIRCLE
+========================================= */
+
+.book-circle {
+
+    width: 105px;
+    height: 105px;
+
+    margin: 0 auto 8px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+
+    border:
+        2px solid rgba(83,235,255,0.65);
+
+    background:
+        rgba(8,101,146,0.25);
+
+    box-shadow:
+        0 0 25px rgba(70,220,255,0.2);
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.welcome {
+
+    font-size: 29px;
+
+    margin-top: 5px;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 4px 5px rgba(0,0,0,0.2);
+}
+
+
+.hero h1 {
+
+    font-size: 78px;
+
+    line-height: 0.95;
+
+    margin: 5px 0 20px;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        3px 5px 0 rgba(0,50,90,0.25),
+        0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+.line-title {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.line-title span {
+
+    width: 85px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.65);
+}
+
+
+.line-title h2 {
+
+    font-size: 25px;
+
+    color: #91f2f4;
+
+    font-weight: normal;
+
+    white-space: nowrap;
+}
+
+
+.description {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    margin-top: 17px;
+
+    color: rgba(255,255,255,0.92);
+}
+
+
+/* =========================================
+   MAIN BUTTONS
+========================================= */
+
+.main-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 32px;
+}
+
+
+.main-buttons button {
+
+    width: 315px;
+
+    height: 75px;
+
+    border-radius: 17px;
+
+    border: 1px solid rgba(255,255,255,0.45);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.18);
+}
+
+
+.donate-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2edce1,
+            #148bd1
+        );
+}
+
+
+.find-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #6875ec,
+            #453bd1
+        );
+}
+
+
+.main-buttons button:hover {
+
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.25);
+}
+
+
+.main-buttons button span:first-child {
+
+    font-size: 28px;
+}
+
+
+.main-buttons button b {
+
+    font-size: 30px;
+
+    font-weight: normal;
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+.logout-btn {
+
+    margin-top: 22px;
+
+    padding: 10px 27px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(255,255,255,0.7);
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.logout-btn:hover {
+
+    background: rgba(255,255,255,0.18);
+}
+
+
+/* =========================================
+   BRIDGE
+========================================= */
+
+.bridge {
+
+    position: absolute;
+
+    z-index: 5;
+
+    width: 75%;
+
+    height: 180px;
+
+    right: -3%;
+
+    bottom: 18px;
+
+    transform: rotate(-6deg);
+}
+
+
+.bridge-road {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 25px;
+
+    top: 40px;
+
+    background: #082e59;
+
+    box-shadow:
+        0 -8px 0 #124a76;
+}
+
+
+.pillar {
+
+    position: absolute;
+
+    top: 55px;
+
+    width: 18px;
+
+    height: 145px;
+
+    background: #092f5a;
+}
+
+
+.pillar1 {
+    left: 20%;
+}
+
+.pillar2 {
+    left: 40%;
+}
+
+.pillar3 {
+    left: 65%;
+}
+
+.pillar4 {
+    left: 85%;
+}
+
+
+/* =========================================
+   BRIDGE LIGHTS
+========================================= */
+
+.bridge-light {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ffe878;
+
+    box-shadow:
+        0 0 10px #ffe878;
+}
+
+
+.light1 {
+    left: 25%;
+    top: 27px;
+}
+
+.light2 {
+    left: 48%;
+    top: 27px;
+}
+
+.light3 {
+    left: 70%;
+    top: 27px;
+}
+
+.light4 {
+    left: 90%;
+    top: 27px;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+
+    position: absolute;
+
+    z-index: 15;
+
+    bottom: 20px;
+
+    left: 20%;
+
+    width: 60%;
+
+    min-height: 105px;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    background:
+        rgba(5,55,105,0.68);
+
+    border:
+        1px solid rgba(117,230,255,0.35);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.2);
+}
+
+
+.feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.feature-icon {
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 23px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    border:
+        1px solid rgba(255,255,255,0.3);
+}
+
+
+.feature h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+.feature p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    color: rgba(255,255,255,0.72);
+}
+
+
+.divider {
+
+    width: 1px;
+
+    height: 48px;
+
+    background:
+        rgba(255,255,255,0.25);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .line-title h2 {
+        font-size: 19px;
+    }
+
+    .main-buttons button {
+        width: 260px;
+    }
+
+    .features {
+        width: 90%;
+        left: 5%;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .profile {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0 25px;
+    }
+
+    .hero {
+        padding-top: 30px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .welcome {
+        font-size: 23px;
+    }
+
+    .line-title span {
+        width: 30px;
+    }
+
+    .line-title h2 {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+    .main-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .main-buttons button {
+        width: 280px;
+        height: 60px;
+    }
+
+    .features {
+        display: none;
+    }
+
+    .bridge {
+        opacity: 0.6;
+    }
+}
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+.background {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #063b73 0%,
+            #08749e 45%,
+            #55c2c5 100%
+        );
+}
+
+
+/* Moon */
+
+.background .moon {
+
+    position: absolute;
+
+    width: 85px;
+    height: 85px;
+
+    right: 12%;
+    top: 70px;
+
+    border-radius: 50%;
+
+    background: #fffdf0;
+
+    box-shadow:
+        0 0 20px white,
+        0 0 45px rgba(255,255,255,0.6);
+}
+
+
+/* Clouds */
+
+.background .cloud {
+
+    position: absolute;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.10);
+}
+
+.background .cloud1 {
+
+    width: 300px;
+
+    top: 180px;
+    left: -60px;
+}
+
+.background .cloud2 {
+
+    width: 350px;
+
+    top: 330px;
+    right: -100px;
+}
+
+.background .cloud3 {
+
+    width: 260px;
+
+    top: 500px;
+    left: 5%;
+}
+
+
+/* Birds */
+
+.background .birds {
+
+    position: absolute;
+
+    top: 230px;
+    left: 20%;
+
+    color: #063b68;
+
+    font-size: 30px;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 400px;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.30);
+
+    border:
+        1px solid rgba(255,255,255,0.6);
+}
+
+
+/* Logo */
+
+.login-card .logo {
+
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e2f7f8;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 5px 20px rgba(0,100,150,0.15);
+}
+
+
+/* Heading */
+
+.login-card h1 {
+
+    margin-bottom: 5px;
+
+    color: #124d73;
+
+    font-size: 40px;
+}
+
+
+.login-card .tagline {
+
+    color: #4d8da7;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+.login-card h2 {
+
+    color: #244e68;
+
+    font-size: 25px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================
+   LOGIN INPUTS
+========================================= */
+
+.login-card form input {
+
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 16px;
+
+    margin-bottom: 16px;
+
+    border: 1px solid #b7d5df;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #f7fcfd;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+
+.login-card form input:focus {
+
+    border-color: #168cab;
+
+    box-shadow:
+        0 0 0 3px rgba(22,140,171,0.12);
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-card form button {
+
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #159db7,
+            #15558b
+        );
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.login-card form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0,80,130,0.25);
+}
+
+
+/* Bottom text */
+
+.login-card .bottom-text {
+
+    margin-top: 20px;
+
+    color: #666;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+}
+
+
+.login-card .bottom-text a {
+
+    color: #155b82;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+.login-card .bottom-text a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   REGISTER PAGE
+========================================= */
+
+.register-card {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 430px;
+
+    padding: 35px 40px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.30);
+}
+
+
+.register-card .logo {
+
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e2f7f8;
+
+    font-size: 32px;
+}
+
+
+.register-card h1 {
+
+    color: #124d73;
+
+    font-size: 36px;
+
+    margin-bottom: 5px;
+}
+
+
+.register-card .tagline {
+
+    color: #4d8da7;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+.register-card h2 {
+
+    color: #244e68;
+
+    font-size: 23px;
+
+    margin-bottom: 20px;
+}
+
+
+.register-card form input,
+.register-card form select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    margin-bottom: 14px;
+
+    border: 1px solid #b7d5df;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #f7fcfd;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+}
+
+
+.register-card form input:focus,
+.register-card form select:focus {
+
+    border-color: #168cab;
+
+    box-shadow:
+        0 0 0 3px rgba(22,140,171,0.12);
+}
+
+
+.register-card form button {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #159db7,
+            #15558b
+        );
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.register-card .bottom-text {
+
+    margin-top: 18px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #666;
+}
+
+
+.register-card .bottom-text a {
+
+    color: #155b82;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .login-card,
+    .register-card {
+
+        width: 90%;
+
+        padding: 30px 25px;
+    }
+
+    .login-card h1,
+    .register-card h1 {
+
+        font-size: 32px;
+    }
+}
+/* =========================================
+   FIND BOOK PAGE
+========================================= */
+
+.find-page {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #063b73 0%,
+            #08769e 45%,
+            #54c1c5 100%
+        );
+
+    color: white;
+
+    padding-bottom: 50px;
+
+    overflow-y: auto;
+}
+
+
+/* NAVBAR */
+
+.find-navbar {
+
+    height: 85px;
+
+    padding: 0 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.15);
+
+    background:
+        rgba(4,45,88,0.25);
+}
+
+
+.find-nav-links {
+
+    display: flex;
+
+    gap: 35px;
+}
+
+
+.find-nav-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    padding: 8px 0;
+
+    opacity: 0.8;
+}
+
+
+.find-nav-links a:hover,
+.find-nav-links a.active {
+
+    opacity: 1;
+
+    border-bottom: 2px solid white;
+}
+
+
+.user-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: Arial, sans-serif;
+}
+
+
+.find-logout {
+
+    margin-left: 12px;
+
+    padding: 8px 18px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* HEADER */
+
+.find-header {
+
+    text-align: center;
+
+    padding-top: 45px;
+
+    padding-bottom: 25px;
+}
+
+
+.find-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 35px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        2px solid rgba(110,235,255,0.6);
+}
+
+
+.find-header h1 {
+
+    font-size: 52px;
+
+    margin-top: 12px;
+
+    text-shadow:
+        3px 4px rgba(0,40,80,0.25);
+}
+
+
+.find-header p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    margin-top: 8px;
+
+    color: rgba(255,255,255,0.85);
+}
+
+
+/* SEARCH BOX */
+
+.search-box {
+
+    width: 70%;
+
+    max-width: 850px;
+
+    margin: 10px auto 25px;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    height: 55px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    background: rgba(255,255,255,0.95);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.15);
+}
+
+
+.search-box button {
+
+    width: 130px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #24d8df,
+            #17639c
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+.search-box button:hover {
+
+    transform: translateY(-2px);
+}
+
+
+/* BOOK COUNT */
+
+.book-count {
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 15px auto;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: rgba(255,255,255,0.85);
+}
+
+
+/* BOOK CONTAINER */
+
+.books-container {
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* BOOK CARD */
+
+.book-card {
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    color: #163f5d;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.18);
+
+    transition: 0.3s;
+}
+
+
+.book-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.25);
+}
+
+
+.book-card-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e0f5f7;
+
+    font-size: 27px;
+
+    margin-bottom: 15px;
+}
+
+
+.book-card h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+
+.book-author {
+
+    color: #477a91;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+
+.book-details {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 15px;
+}
+
+
+.book-tag {
+
+    padding: 5px 9px;
+
+    border-radius: 15px;
+
+    background: #e7f4f6;
+
+    color: #24627e;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+}
+
+
+.book-location {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #555;
+
+    margin-bottom: 15px;
+}
+
+
+.book-description {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #666;
+
+    line-height: 1.5;
+
+    margin-bottom: 18px;
+}
+
+
+.request-btn {
+
+    width: 100%;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #155b8c,
+            #178fa9
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.request-btn:hover {
+
+    opacity: 0.9;
+}
+
+
+/* NO BOOKS */
+
+.no-books {
+
+    width: 90%;
+
+    max-width: 500px;
+
+    margin: 50px auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    color: #244e68;
+}
+
+
+.no-books div {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+
+.no-books p {
+
+    margin-top: 8px;
+
+    font-family: Arial, sans-serif;
+
+    color: #666;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .books-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .search-box {
+
+        width: 85%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .find-nav-links {
+
+        display: none;
+    }
+
+    .find-navbar {
+
+        padding: 0 20px;
+    }
+
+    .find-header h1 {
+
+        font-size: 38px;
+    }
+
+    .search-box {
+
+        width: 90%;
+
+        flex-direction: column;
+    }
+
+    .search-box button {
+
+        width: 100%;
+
+        height: 48px;
+    }
+
+    .books-container {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================================
+   REQUEST PAGE
+========================================= */
+
+.requests-page {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #063b73 0%,
+            #08769e 45%,
+            #54c1c5 100%
+        );
+
+    color: white;
+
+    overflow-y: auto;
+
+    padding-bottom: 50px;
+}
+
+
+.requests-container {
+
+    width: 85%;
+
+    max-width: 950px;
+
+    margin: 20px auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* REQUEST CARD */
+
+.request-card {
+
+    min-height: 125px;
+
+    padding: 22px 25px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    color: #194866;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.18);
+
+    transition: 0.3s;
+}
+
+
+.request-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.25);
+}
+
+
+/* BOOK ICON */
+
+.request-book-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 32px;
+
+    background: #e1f5f7;
+}
+
+
+/* REQUEST INFO */
+
+.request-info {
+
+    flex: 1;
+}
+
+
+.request-info h2 {
+
+    margin-bottom: 7px;
+
+    font-size: 22px;
+}
+
+
+.request-info p {
+
+    font-family: Arial, sans-serif;
+
+    color: #50778b;
+
+    margin-bottom: 10px;
+}
+
+
+.request-info span {
+
+    display: inline-block;
+
+    margin-right: 8px;
+
+    padding: 5px 9px;
+
+    border-radius: 15px;
+
+    background: #e7f4f6;
+
+    color: #24627e;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+}
+
+
+/* STATUS */
+
+.request-status {
+
+    min-width: 110px;
+
+    text-align: center;
+}
+
+
+.request-status small {
+
+    display: block;
+
+    color: #777;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+}
+
+
+.request-status strong {
+
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    border-radius: 20px;
+
+    background: #fff2c7;
+
+    color: #9a7200;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .request-card {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .request-info span {
+
+        margin-top: 5px;
+    }
+
+    .request-status {
+
+        width: 100%;
+    }
+
+}
+/* =========================================
+   DONATE FORM - CENTER ALIGNMENT
+========================================= */
+
+.donation-card {
+    width: 620px;
+    max-width: 90%;
+
+    margin: 40px auto 80px auto;
+
+    padding: 35px 45px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    box-sizing: border-box;
+}
+
+
+/* DONATION FORM */
+
+#donationForm {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* INPUTS */
+
+#donationForm input,
+#donationForm select,
+#donationForm textarea {
+
+    width: 100%;
+
+    padding: 15px 18px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #b9dce5;
+
+    border-radius: 12px;
+
+    background: #f8fcfd;
+
+    color: #234c63;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+
+    outline: none;
+}
+
+
+/* SELECT */
+
+#donationForm select {
+
+    appearance: auto;
+
+    cursor: pointer;
+}
+
+
+/* TEXTAREA */
+
+#donationForm textarea {
+
+    resize: vertical;
+
+    min-height: 110px;
+}
+
+
+/* FOCUS */
+
+#donationForm input:focus,
+#donationForm select:focus,
+#donationForm textarea:focus {
+
+    border-color: #39b6d0;
+
+    box-shadow:
+        0 0 0 3px rgba(57, 182, 208, 0.15);
+}
+
+
+/* DONATE BUTTON */
+
+#donationForm button {
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07528a,
+            #159db5
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+#donationForm button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .donation-card {
+
+        width: 92%;
+
+        padding: 25px 20px;
+
+        margin-top: 25px;
+    }
+
+}
+/* =========================================
+   ALLOW PAGE SCROLL
+========================================= */
+
+html,
+body {
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.find-page,
+.requests-page {
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+}
+
+/* Donate page form should continue below screen */
+.donation-card {
+    margin-bottom: 80px;
+}
+/* ==========================================
+   FIND A BOOK PAGE
+========================================== */
+
+.find-page {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            180deg,
+            #07467c 0%,
+            #08729b 45%,
+            #35b5c2 100%
+        );
+
+    color: white;
+}
+
+
+/* NAVBAR */
+
+.find-page .navbar {
+
+    height: 110px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 70px;
+
+    box-sizing: border-box;
+
+    background: rgba(4, 54, 103, 0.8);
+
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+
+}
+
+
+.find-page .logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+}
+
+
+.find-page .logo span {
+
+    font-family: Georgia, serif;
+
+}
+
+
+.find-page nav {
+
+    display: flex;
+
+    gap: 40px;
+
+}
+
+
+.find-page nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    padding: 15px 0;
+
+}
+
+
+.find-page nav a.active {
+
+    border-bottom: 3px solid white;
+
+}
+
+
+.user-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 17px;
+
+}
+
+
+.user-area button {
+
+    margin-left: 15px;
+
+    padding: 10px 22px;
+
+    border-radius: 25px;
+
+    border: 1px solid white;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+/* HEADER */
+
+.find-header {
+
+    text-align: center;
+
+    padding: 55px 20px 25px;
+
+}
+
+
+.book-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 2px solid #5ed4e5;
+
+    font-size: 38px;
+
+}
+
+
+.find-header h1 {
+
+    margin: 20px 0 10px;
+
+    font-size: 58px;
+
+    font-family: Georgia, serif;
+
+    text-shadow: 3px 4px rgba(0,0,0,0.2);
+
+}
+
+
+.find-header p {
+
+    font-size: 20px;
+
+}
+
+
+/* SEARCH */
+
+.search-section {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 25px 20px 45px;
+
+}
+
+
+.search-box {
+
+    width: 750px;
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    padding: 18px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+
+    outline: none;
+
+}
+
+
+.search-box button {
+
+    padding: 0 30px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #07528a;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+/* BOOK SECTION */
+
+.books-section {
+
+    width: 1100px;
+
+    max-width: 90%;
+
+    margin: auto;
+
+    padding-bottom: 80px;
+
+}
+
+
+.books-section h2 {
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* BOOK LIST */
+
+.book-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 25px;
+
+}
+
+
+/* BOOK CARD */
+
+.book-card {
+
+    background: rgba(255,255,255,0.96);
+
+    color: #174a65;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    display: flex;
+
+    gap: 20px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
+
+}
+
+
+.book-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.book-cover {
+
+    min-width: 65px;
+
+    height: 85px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #d9f4f7;
+
+    border-radius: 12px;
+
+    font-size: 35px;
+
+}
+
+
+.book-details {
+
+    flex: 1;
+
+}
+
+
+.book-details h3 {
+
+    margin-top: 0;
+
+    font-size: 23px;
+
+    color: #07528a;
+
+    font-family: Georgia, serif;
+
+}
+
+
+.book-details p {
+
+    margin: 7px 0;
+
+    font-size: 14px;
+
+}
+
+
+.description {
+
+    color: #666;
+
+    line-height: 1.4;
+
+}
+
+
+.request-button {
+
+    margin-top: 15px;
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07528a,
+            #159db5
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+/* NO BOOKS */
+
+.no-books {
+
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.95);
+
+    color: #07528a;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .find-page .navbar {
+
+        padding: 0 25px;
+
+    }
+
+    .find-page nav {
+
+        gap: 15px;
+
+    }
+
+    .find-page nav a {
+
+        font-size: 15px;
+
+    }
+
+    .user-area {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .find-header h1 {
+
+        font-size: 40px;
+
+    }
+
+    .search-box {
+
+        flex-direction: column;
+
+    }
+
+    .search-box button {
+
+        padding: 15px;
+
+    }
+
+    .book-card {
+
+        flex-direction: column;
+
+    }
+
+}
+/* ==========================================
+   FEEDBACK & RATING
+========================================== */
+
+.feedback-box {
+    margin-top: 25px;
+    padding: 25px;
+    background: #f5fbfd;
+    border-radius: 20px;
+}
+
+.feedback-box h3 {
+    color: #07528a;
+    margin-bottom: 15px;
+}
+
+.stars {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.stars span {
+    font-size: 32px;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.stars span:hover {
+    transform: scale(1.15);
+}
+
+.stars span.selected {
+    color: #f5b400;
+}
+
+.feedback-box textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #b8dce8;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 16px;
+}
+
+.feedback-box button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #087fa5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
