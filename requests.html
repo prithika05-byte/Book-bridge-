@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookBridge - My Requests</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="requests-page">
+
+    <!-- NAVBAR -->
+
+    <nav class="find-navbar">
+
+        <div class="brand">
+            <span>📚</span>
+            <span>BookBridge</span>
+        </div>
+
+        <div class="find-nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="donate.html">Donate</a>
+
+            <a href="find.html">Find a Book</a>
+
+            <a href="requests.html" class="active">
+                My Requests
+            </a>
+
+        </div>
+
+        <div class="user-area">
+
+            <span>👤</span>
+
+            <span id="requestUser">
+                User
+            </span>
+
+            <button onclick="logout()"
+                    class="find-logout">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+
+    <div class="find-header">
+
+        <div class="find-icon">
+            📋
+        </div>
+
+        <h1>
+            My Book Requests
+        </h1>
+
+        <p>
+            Track the books you have requested.
+        </p>
+
+    </div>
+
+
+    <!-- REQUESTS -->
+
+    <div class="requests-container"
+         id="requestsContainer">
+
+    </div>
+
+
+    <!-- NO REQUEST -->
+
+    <div class="no-books"
+         id="noRequests">
+
+        <div>
+            📚
+        </div>
+
+        <h2>
+            No Requests Yet
+        </h2>
+
+        <p>
+            Find a book and send your first request.
+        </p>
+
+        <br>
+
+        <button
+            class="request-btn"
+            onclick="window.location.href='find.html'">
+
+            🔎 Find a Book
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+<div class="feedback-box">
+
+    <h3>⭐ Give Feedback</h3>
+
+    <div class="stars">
+        <span onclick="setRating(1)">★</span>
+        <span onclick="setRating(2)">★</span>
+        <span onclick="setRating(3)">★</span>
+        <span onclick="setRating(4)">★</span>
+        <span onclick="setRating(5)">★</span>
+    </div>
+
+    <textarea
+        id="feedbackText"
+        placeholder="Write your feedback...">
+    </textarea>
+
+    <button type="button" onclick="submitFeedback()">
+    Submit Feedback
+</button>
+</div>
