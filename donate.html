@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BookBridge - Donate a Book</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="find-page">
+
+    <!-- NAVBAR -->
+
+    <nav class="find-navbar">
+
+        <div class="brand">
+
+            <span>📚</span>
+
+            <span>BookBridge</span>
+
+        </div>
+
+
+        <div class="find-nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="donate.html"
+               class="active">
+                Donate
+            </a>
+
+            <a href="find.html">
+                Find a Book
+            </a>
+
+            <a href="requests.html">
+                My Requests
+            </a>
+
+        </div>
+
+
+        <div class="user-area">
+
+            <span>👤</span>
+
+            <span id="donorName">
+                User
+            </span>
+
+            <button
+                onclick="logout()"
+                class="find-logout">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+
+    <div class="find-header">
+
+        <div class="find-icon">
+            📚
+        </div>
+
+        <h1>
+            Donate a Book
+        </h1>
+
+        <p>
+            Share your unused books with students who need them.
+        </p>
+
+    </div>
+
+
+    <!-- DONATION FORM -->
+
+    <div class="login-card donation-card">
+
+        <form id="donationForm">
+
+            <input
+                type="text"
+                id="bookName"
+                placeholder="Book Name"
+                required
+            >
+
+            <input
+                type="text"
+                id="author"
+                placeholder="Author"
+                required
+            >
+
+
+            <select id="category" required>
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="Computer Science">
+                    Computer Science
+                </option>
+
+                <option value="Mathematics">
+                    Mathematics
+                </option>
+
+                <option value="Physics">
+                    Physics
+                </option>
+
+                <option value="Chemistry">
+                    Chemistry
+                </option>
+
+                <option value="English">
+                    English
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <input
+                type="text"
+                id="edition"
+                placeholder="Edition"
+            >
+
+
+            <select id="condition" required>
+
+                <option value="">
+                    Select Book Condition
+                </option>
+
+                <option value="New">
+                    New
+                </option>
+
+                <option value="Good">
+                    Good
+                </option>
+
+                <option value="Used">
+                    Used
+                </option>
+
+            </select>
+
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Location"
+                required
+            >
+
+
+            <textarea
+                id="description"
+                placeholder="Book Description"
+                rows="4">
+            </textarea>
+
+
+            <button type="submit">
+
+                📚 Donate This Book
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+    const loggedUser =
+        JSON.parse(
+            localStorage.getItem("loggedInUser")
+        );
+
+
+    if (!loggedUser) {
+
+        window.location.href =
+            "login.html";
+
+    } else {
+
+        document.getElementById(
+            "donorName"
+        ).textContent =
+            loggedUser.name;
+
+    }
+
+</script>
+
+</body>
+
+</html>
