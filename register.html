@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookBridge - Register</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background">
+
+        <div class="moon"></div>
+
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+
+        <div class="birds">⌁ ︵ ⌁</div>
+
+        <div class="bridge"></div>
+
+        <div class="register-card">
+
+            <div class="logo">
+                📚
+            </div>
+
+            <h1>BookBridge</h1>
+
+            <p class="tagline">
+                Share Knowledge, Bridge Futures
+            </p>
+
+            <h2>Create Account</h2>
+
+            <form id="registerForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create Password"
+                    required
+                >
+
+                <select id="role" required>
+
+                    <option value="">
+                        Select User Type
+                    </option>
+
+                    <option value="Student">
+                        Student
+                    </option>
+
+                    <option value="Donor">
+                        Donor
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="bottom-text">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
