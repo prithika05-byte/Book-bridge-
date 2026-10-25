@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donor Requests - BookBridge</title>
+<style>
+body {
+    margin: 0;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 85% 15%, #fffde8 0 35px, transparent 37px),
+        radial-gradient(circle at 20% 25%, white 1px, transparent 2px),
+        radial-gradient(circle at 60% 15%, white 1px, transparent 3px),
+        linear-gradient(180deg, #0b3c70, #087fa4, #56c6c2);
+    background-attachment: fixed;
+}
+#list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 20px;
+}
+.card {
+    padding: 22px;
+    border-radius: 16px;
+    background: #07365bd9;
+    border: 1px solid #8be8ff80;
+}
+button {
+    padding: 10px 14px;
+    margin: 5px 3px;
+    border: 0;
+    border-radius: 7px;
+    background: #16b8d0;
+    color: white;
+    cursor: pointer;
+}
+.reject { background: #d74757; }
+input { max-width: 100%; margin: 10px 0; }
+</style>
+</head>
+<body>
+<h1>BookBridge - Donor Requests</h1>
+<div id="list"></div>
+
+<script src="workflow.js"></script>
+<script>
+function render() {
+    const list = document.getElementById("list");
+    const requests = getRequests();
+
+    if (!requests.length) {
+        list.innerHTML = "<p>No requests yet.</p>";
+        return;
+    }
+
+    list.replaceChildren();
+
+    requests.forEach(r => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const title = document.createElement("h2");
+        title.textContent = r.title;
+
+        const student = document.createElement("p");
+        student.textContent = "Student: " + r.student;
+
+        const status = document.createElement("p");
+        status.textContent = "Status: " + r.status;
+
+        card.append(title, student, status);
+
+        if (r.status === "Pending") {
+            addButton(card, "Accept", () => {
+                donorDecision(r.id, "Accepted");
+                render();
+            });
+
+            addButton(card, "Reject", () => {
+                donorDecision(r.id, "Rejected");
+                render();
+            }, "reject");
+        }
+
+        if (r.status === "Accepted") {
+            const file = document.createElement("input");
+            file.type = "file";
+            file.accept = "application/pdf";
+            card.appendChild(file);
+
+            addButton(card, "Upload PDF", async () => {
+                try {
+                    await uploadPDF(r.id, file.files[0]);
+                    alert("PDF uploaded!");
+                    render();
+                } catch (err) {
+                    alert(err.message);
+                }
+            });
+
+            addButton(card, "Mark Completed", async () => {
+                try {
+                    await markCompleted(r.id);
+                    alert("Request completed!");
+                    render();
+                } catch (err) {
+                    alert(err.message);
+                }
+            });
+        }
+
+        list.appendChild(card);
+    });
+}
+
+function addButton(parent, text, action, extraClass = "") {
+    const button = document.createElement("button");
+    button.textContent = text;
+    button.className = extraClass;
+    button.onclick = action;
+    parent.appendChild(button);
+}
+
+render();
+</script>
+</body>
+</html>
